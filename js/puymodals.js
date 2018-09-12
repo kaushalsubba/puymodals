@@ -150,6 +150,11 @@ function puyModal(options) {
   if (that.type == 'video') {
     that.videoPayload = getVideoPayload(that.videoSource, that.embedTag);
   }
+  
+  that.additional_properties='';
+  if (typeof(options.additional_properties) != 'undefined') {
+     that.additional_properties = options.additional_properties;
+  }
 
 
 
@@ -187,7 +192,7 @@ function puyModal(options) {
   //The output starts here
   html = '<div id="puyModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="message-modal" aria-hidden="true">';
   html += that.style;
-  html += '<div class="modal-dialog">';
+  html += '<div class="modal-dialog '+options.additional_properties+'">';
   html += '<div class="modal-content" style="display: block;">';
   if (that.showHeader) {
     html += '<div class="modal-header modal-title">';
